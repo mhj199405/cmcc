@@ -1,0 +1,35 @@
+.col1{
+    background-image:url(../img/st-bk-1.png);
+    height: 112px;
+    background-size: cover;
+    border-radius: 11px;
+}
+.col2{
+    background-image:url(../img/st-bk-2.png);
+    height: 112px;
+    background-size: cover;
+    border-radius: 11px;
+}
+.col3{
+    background-image:url(../img/st-bk-3.png);
+    height: 112px;
+    background-size: cover;
+    border-radius: 11px;
+}
+.col4{
+    background-image:url(../img/st-bk-4.png);
+    height: 112px;
+    background-size: cover;border-radius: 11px;
+}
+.text-sty{
+    padding-top: 21px;
+ 
+    font-size: 22px;
+    margin-left: 25%;
+}
+.text-sty2{
+    padding-top: 13px;
+  
+    font-size: 22px;
+    margin-left: 25%;
+}

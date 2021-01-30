@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.dao.UserComplaintDao">
+	<select id="listAllUserComplaint" parameterType="java.lang.String" resultType="UserComplaint">
+		select * from usercomplaint  where comname=#{comname}
+	</select>
+	<select id="seleIdcomplaint"  resultType="UserComplaint">
+	    select * from usercomplaint where comname=#{0} and id=#{1}
+	</select>
+	<insert id="addUserComplaint"  parameterType="UserComplaint">
+	   insert into usercomplaint values(#{id},#{name},#{complaint},#{publish},#{dob},#{content},#{comname})
+	</insert>
+	<delete id="deleUserComplaint">
+	    delete from usercomplaint where comname=#{0} and id=#{1}
+	</delete>
+	<update id="updateUserComplaint" parameterType="UserComplaint">
+	   update usercomplaint set name=#{name},complaint=#{complaint},publish=#{publish},dob=#{dob},content=#{content}
+	   where comname=#{comname} and id=#{id}
+	</update>
+	<select id="findcount" resultType="int" parameterType="java.lang.String">
+	   select  count(distinct name) from  usercomplaint
+	</select>
+	<select id="getPage" resultType="UserComplaint" parameterType="HashMap">
+	   select distinct name from usercomplaint limit #{pageIndex},#{pageItems}
+	</select>
+	<select id="listallCompimpl" resultType="UserComplaint" parameterType="java.lang.String">
+	   select * from usercomplaint  where name=#{name}
+	</select>
+	<select id="listcompid" resultType="UserComplaint">
+	  select * from usercomplaint  where id=#{0}
+	</select>
+	<select id="countCompl"  resultType="int" parameterType="java.lang.String">
+	    select count(*) from usercomplaint where name=#{0}
+	</select>
+	<select id="getCountComp" resultType="int">
+	   select count(distinct name) from usercomplaint
+	</select>
+	<select id="getPageShowCop" resultType="UserComplaint" parameterType="HashMap">
+	   select distinct name from usercomplaint limit #{pageIndex},#{pageItems}
+	</select>
+	<!-- <select id="count" parameterType="java.lang.String" resultType="int">
+       select count(*) from usercomplaint  where comname=#{comname}
+	</select> -->
+	<select id="userPageEvent"  parameterType="java.lang.String"  resultType="UserComplaint">
+	   select * from usercomplaint where comname=#{0}
+	</select>
+	<select id="lisusenamecom"  resultType="UserComplaint">
+	    select * from usercomplaint where comname=#{0} and name=#{1}
+	</select>
+	<delete id="batDeleCompla">
+        delete from usercomplaint
+        <where>
+            <if test="list!=null and list.size()>0">
+                <foreach collection="list" item="id" separator="," open="and id in (" close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+</mapper>

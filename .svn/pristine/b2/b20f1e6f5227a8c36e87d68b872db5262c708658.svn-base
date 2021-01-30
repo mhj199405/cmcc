@@ -1,0 +1,6 @@
+body {
+  background-image:url("../img/user_dat.jpg");
+}
+table {
+	margin-top: 200px;
+}

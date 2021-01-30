@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.dao.UserNoticeDao">
+ <!--这是管理员的账户，只有登录，没有注册这一说法-->
+	<select id="listallNotice"  resultType="Notice">
+	   select * from notice
+	</select>
+	<insert id="addNotice" parameterType="Notice">
+	  insert into notice values(#{id},#{name},#{time},#{content},#{people},#{type})
+	</insert>
+	<delete id="deleNotice" parameterType="long">
+	   delete from notice where id=#{id}
+	</delete>
+	<update id="updaNotice" parameterType="Notice">
+	   update notice set name=#{name},time=#{time},content=#{content},people=#{people},type=#{type} where id=#{id}
+	</update>
+	<select id="lookidNotice" parameterType="long" resultType="Notice">
+	  select * from notice where id=#{id}
+	</select>
+	<select id="findcount" resultType="int">
+	  select count(*) from  notice 
+	</select>
+	<select id="getPage" resultType="Notice" parameterType="HashMap">
+	  select * from notice order by time desc limit  #{pageIndex},#{pageItems} 
+	</select>
+	<select id="listcom" parameterType="java.lang.String" resultType="Notice">
+      select * from notice  where name like #{name}	 order by time desc
+	</select>
+	<select id="getItem" parameterType="java.lang.String" resultType="int">
+      select count(*) from notice where name like #{name}	
+	</select>
+	<delete id="delByids">
+        delete from notice
+        <where>
+            <if test="list!=null and list.size()>0">
+                <foreach collection="list" item="id" separator="," open="and id in (" close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.dao.UserSituationDao">
+ <!--这是老师端，用于处理投诉-->
+	<insert id="addSituation" parameterType="Situation">
+		insert into situations values (#{ucpname},#{reason},#{situtime},#{situpeople},#{situevidence},#{accsituation})
+	</insert>
+<!--  这是老师端，学生可以用来查看事件是否受理-->
+    <select id="listSituations" parameterType="java.lang.String" resultType="Situation">
+        select * from situations where ucpname=#{ucpname}
+    </select>
+ <!--这是老师端，表示老师对事件的处理进行更新  -->
+    <update id="updateSituations" parameterType="Situation">
+        update situations set reason=#{reason},situtime=#{situtime},situpeople=#{situpeople},situevidence=#{situevidence},accsituation=#{accsituation}
+        where ucpname=#{ucpname}
+    </update>
+    <select id="Situations" parameterType="java.lang.String" resultType="Situation">
+         select * from situations where ucpname=#{ucpname}
+    </select>
+    <select id="getCountComp" resultType="int">
+	   select count(*) from situations
+	</select>
+	<select id="getPageShowCop" resultType="Situation" parameterType="HashMap">
+	   select * from situations limit #{pageIndex},#{pageItems}
+	</select>
+	<select id="allsitucomname" resultType="Situation">
+	   select * from situations
+	</select>
+</mapper>

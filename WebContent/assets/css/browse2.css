@@ -1,0 +1,45 @@
+body{
+margin: 0px;
+padding:0px;
+overflow: hidden;
+}
+#menu_1_title{
+width:290px;
+height:43px;
+background-color:#e8e9ee;
+cursor:pointer;
+margin-left:20px;
+margin-top:15px;
+border-radius:6px;
+}
+#menu_1_title div{
+font-size:25px;
+color:white;
+margin-left:75px;
+margin-top:6px;
+font-weight:bold;
+}
+#menu_1_li div{
+width:290px;
+height:423px;	
+margin-left:20px;
+margin-top:-11px;
+background-color:#e8e9ee;
+font-size:12px;
+}
+#menu_1_li div ul{
+  list-style-image:url("../img/left.gif");
+}
+#menu_1_li div ul li{
+margin-top:10px;
+margin-left:10px;
+cursor:pointer;
+color:#333333;
+}
+#menu_1_li div ul li a{
+text-decoration:none;
+color:#5c637b;
+font-weight:bold;
+font-family:cursive;
+font-size:17px;
+}

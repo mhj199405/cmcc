@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>
+		<!-- property声明一组对象key=value
+			name为key
+			value为值
+			变量定义之后，在使用的地方${driver}
+		 -->
+		<!-- <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
+		<property name="user" value="root"/>
+		<property name="passwd" value="root"/> -->
+		<property name="driver" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/root"/>
+		<property name="user" value="root"/>
+		<property name="passwd" value="root"/>
+	</properties>
+	<!-- 给映射文件XXXMapper.xml中的全限定名起别名 
+	parameterType resulutType 
+	ResultMap标签中的type属性
+	-->
+	<typeAliases>
+			<!-- 给一个类型起别名 -->
+			<!-- <typeAlias alias="stu" type="com.briup.pojo.Student"/> -->
+			<!-- 给某个包下的所有类起别名
+			1.默认别名就是类名(忽略大小写)
+			2.直接在起别名的类中写注解@Alias()
+			一但写了注解，默认类名是别名失效
+			 -->
+			<package name="com.briup.bean"/>
+			<!-- <typeAlias alias="stus" type="com.briup.pojo.Student"/> -->
+	</typeAliases>
+	
+	<!-- default	默认的环境 -->
+  <environments default="development">
+    <environment id="development">
+    	<!-- transactionManager事物管理方式 
+    	type：
+    		JDBC采用jdbc的事物管理方式（事物的提交需要程序员控制）
+    		MANAGED：事物由项目部署的服务器来管理（事物的提
+    			交需要服务器控制，服务器必须支持事物的管理方式
+    			jboss,weblogic 等服务器支持事物管理，会帮助程序员
+    			完成事物的提交）
+    		注意：tomcat服务器不具备事物管理功能
+    	-->
+      <transactionManager type="JDBC"/>
+      <!--数据源 
+      POOLED 内部采用连接池（集合）管理连接对象，使用从里面获取
+      不用放回（运行阶段）
+      UNPOOLED 连接对象使用的时候时候创建，使用完成关闭
+      （测试阶段）
+      JNDI：将资源存储在某个目录结构中，使用的时候直接记录
+      目录结构获取资源
+      eg:   /x/y/z
+      
+      -->
+      <dataSource type="POOLED">
+      	<!-- 连接数据库的四要素 name属性值不能更改 -->
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${passwd}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+  	<!-- 指定映射文件（路径以src的下一个路径为准） -->
+    <mapper resource="com/briup/dao/UserAdminDao.xml"/>
+    <mapper resource="com/briup/dao/UserDao.xml"/> 
+    <mapper resource="com/briup/dao/UserAdmissibilityDao.xml"/>
+    <mapper resource="com/briup/dao/UserComplaintDao.xml"/>
+    <mapper resource="com/briup/dao/UserSysDao.xml"/>
+    <mapper resource="com/briup/dao/UserCopyDao.xml"/>
+    <mapper resource="com/briup/dao/UserSituationDao.xml"/>
+    <mapper resource="com/briup/dao/UserNoticeDao.xml"/>
+  </mappers>
+</configuration>
+
+
+
+
+

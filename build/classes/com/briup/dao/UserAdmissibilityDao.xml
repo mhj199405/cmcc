@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.dao.UserAdmissibilityDao">
+ <!--老师登录-->
+	<select id="findUser" parameterType="java.lang.String" resultType="User">
+		select username,password
+		from useradmissibility
+		where username=#{username}
+	</select>
+	 <!--用户注册  -->
+    <insert id="saveUser" parameterType="user">
+       insert into useradmissibility values(#{username},#{password},#{phone},#{email},#{dob})
+    </insert>
+    <!--删除用户  -->
+    <delete id="deleUser" parameterType="java.lang.String">
+       delete from useradmissibility where username=#{username}
+    </delete>
+    <select id="seleUser" parameterType="java.lang.String" resultType="user">
+	  select username,password,phone,email,dob from useradmissibility where username=#{username}
+	</select>
+	<update id="updateUser" parameterType="user">
+	  update useradmissibility set password=#{password},phone=#{phone},email=#{email},dob=#{dob}
+	  where username=#{username}
+	</update>
+	<select id="findcount" resultType="int">
+	  select count(*) from  useradmissibility
+	</select>
+	<select id="getPage" resultType="User" parameterType="HashMap">
+	   select * from useradmissibility order by dob  limit #{pageIndex},#{pageItems} 
+	</select>
+	<select id="listallUser"  resultType="java.lang.String">
+	  select username from useradmissibility 
+	</select>
+</mapper>

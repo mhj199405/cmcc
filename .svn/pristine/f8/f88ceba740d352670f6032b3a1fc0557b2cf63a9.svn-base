@@ -1,0 +1,205 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+    font:normal normal 14px "SF Pro SC","HanHei SC","SF Pro Text", "Microsoft yahei","sans-serif";
+    color: #333;
+}
+body,ul,ol,dl,h1,h2,h3,p{
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+body{
+    background-color: #f0f5f8;
+}
+.wrapper{
+    background-image: url(assets/img/uppasswd.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.top{
+    width: 85%;
+    margin: 2% auto;
+    margin-bottom: 1.3%;
+}
+.top>.top_left{
+    float: left;
+}
+.top>.top_right{
+    float: right;
+    color: #566988;
+    font-size: 17px;
+    cursor: pointer;
+    position: relative;
+}
+.topSub-nav{
+    margin-top: 8px;
+    width: 100px;
+    height: 75px;
+    background-color: rgba(73,91,110,0.5);
+    position: absolute;
+    border-radius: 8px;
+    padding: 0.5em;
+    left: 0.7rem;
+    display: none;
+}
+.myTab{
+    cursor: pointer;
+}
+.user{
+    font-size: 20px;
+}
+.user-center{
+    margin-top: 0.8rem;
+}
+.down{
+    position: absolute;
+    top: 1px;
+}
+.topSub-nav {
+    color: #fff;
+    font-size: 14px;
+}
+.user-center{
+    font-size: 16px;
+}
+.modify-pwd{
+    font-size: 18px;
+}
+.topSub-nav > li a{
+    font-size: 14px;
+    color: #fff;
+}
+.top::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.login{
+    width: 50%;
+}
+.content{
+    max-width: 90%;
+    margin: 1% auto;
+}
+.content>ul{
+    text-align: center;
+}
+.content>ul li{
+    border: 5px solid transparent;
+    display: inline-block;
+    width: 28%;
+    line-height: 400%;
+    border-radius: 13px;
+    text-align: center;
+    margin: 8.5% 1.2%;
+    font-size: 350%;
+    color: #fff;
+    font-family: FZZYJW--GB1-0;
+    cursor: pointer;
+}
+@media screen and (max-width: 1300px) {
+    .content > ul li {
+        line-height: 400%;
+        font-size: 320%;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .login{
+        width: 80%;
+    }
+    .top>.top_right{
+       font-size:  25px;
+    }
+    .user{
+        font-size: 30px;
+    }
+    .content > ul li {
+        line-height: 450%;
+        font-size: 450%;
+    }
+
+    .bottom{
+        font-size: 130%;
+    }
+}
+@media screen and (min-width: 2100px) and (max-width: 2800px){
+    .content > ul li {
+        line-height: 500%;
+        font-size: 550%;
+    }
+    .modify-pwd{
+        font-size: 30px;
+    }
+    .user-center{
+        font-size: 25px;
+    }
+    .topSub-nav > li a{
+        font-size: 20px;
+    }
+    .topSub-nav{
+        width: 150px;
+        height: 80px;
+    }
+}
+.content>ul li:hover{
+    border:5px solid rgba(255,255,255,1);
+}
+.one{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(128,182,254,1) 0%,rgba(181,128,251,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FF80B6FE',endColorStr='#FFB580FB');
+}
+.two{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(242,180,151,1) 0%,rgba(233,137,138,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FFF2B497',endColorStr='#FFE9898A');
+}
+.three{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(104,219,225,1) 0%,rgba(134,171,254,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FF68DBE1',endColorStr='#FF86ABFE');
+}
+.four{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(240,149,234,1) 0%,rgba(221,196,134,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FFF095EA',endColorStr='#FFDDC486');
+}
+.five{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(136,175,255,1) 0%,rgba(255,160,254,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FF88AFFF',endColorStr='#FFFFA0FE');
+}
+.six{
+    background-origin: border-box;
+    background-image: linear-gradient(90deg,rgba(255,148,148,1) 0%,rgba(255,208,96,1) 100%);
+    box-shadow:9px 9px 17px 0px rgba(20,23,26,0.37);
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1,startColorStr='#FFFF9494',endColorStr='#FFFFD060');
+}
+.bottom{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: #566988;
+}
+.alertDiv{
+	display: none;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 300px;
+}
